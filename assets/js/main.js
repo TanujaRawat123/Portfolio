@@ -204,6 +204,14 @@
     }
   });
 
+  const snowflakes = document.querySelectorAll('.snowflake');
+
+  snowflakes.forEach(snowflake => {
+    const sizeEm = Math.random() * 4 + 1; // between 1 and 3 em
+    snowflake.style.width = sizeEm + 'em';
+    snowflake.style.height = sizeEm + 'em';
+  });
+
   /**
    * Navmenu Scrollspy
    */

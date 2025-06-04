@@ -49,17 +49,7 @@
   }
 }
 
-@keyframes snowflakes-opacity {
 
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 0.3;
-  }
-}
 
 .snowflake-container {
   position: absolute;
@@ -78,10 +68,10 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 1.0;
   color: white;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  animation-name: snowflakes-fall, snowflakes-shake, snowflakes-opacity;
+  animation-name: snowflakes-fall, snowflakes-shake;
   animation-duration: 10s, 3s;
   animation-timing-function: linear, ease-in-out;
   animation-iteration-count: infinite, infinite;

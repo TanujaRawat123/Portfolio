@@ -522,6 +522,11 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+.rounded-images-shadow {
+  box-shadow: 0 0 20px 1px black;
+  border-radius: 20px;
+}
+
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/

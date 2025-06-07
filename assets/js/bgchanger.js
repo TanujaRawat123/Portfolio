@@ -8,14 +8,21 @@ document.addEventListener("DOMContentLoaded", function () {
     let imageSrc = "";
 
     if (currentMonth >= 0 && currentMonth <= 2) {
+
         const container = document.querySelector('.snowflake-container');
         container.remove();
+
         imageSrc = "assets/img/spring.jpg"; // Jan - Mar
     } else if (currentMonth >= 3 && currentMonth <= 4) {
         const container = document.querySelector('.snowflake-container');
         container.remove();
+
         imageSrc = "assets/img/summer.jpg"; // Apr - Jun
+        bgImage.style.filter = "brightness(40%)";
     } else if (currentMonth >= 5 && currentMonth <= 8) {
+        const container2 = document.querySelector('.flare-container');
+        container2.remove();
+
         const container = document.querySelector('.snowflake-container');
         container.remove();
 
@@ -23,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         imageSrc = "assets/img/rain.jpg"; // Jul - Sep
     } else {
+        const container2 = document.querySelector('.flare-container');
+        container2.remove();
         imageSrc = "assets/img/winter.jpg"; // Oct - Dec
     }
 

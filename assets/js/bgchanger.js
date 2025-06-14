@@ -1,25 +1,28 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const currentMonth = new Date().getMonth(); // 0 = Jan, 11 = Dec
+    const currentHour = new Date().getHours();
     const bgImage = document.getElementById("bgImage");
-
     if (!bgImage) return;
 
     let imageSrc = "";
 
-    if (currentMonth >= 0 && currentMonth <= 2) {
+    //if (currentMonth >= 0 && currentMonth <= 2) {
+    if (currentHour >= 5 && currentHour <= 10) {
 
         const container = document.querySelector('.snowflake-container');
         container.remove();
 
         imageSrc = "assets/img/spring.jpg"; // Jan - Mar
-    } else if (currentMonth >= 3 && currentMonth <= 4) {
+        //} else if (currentMonth >= 3 && currentMonth <= 4) {
+    } else if (currentHour >= 10 && currentHour <= 16) {
         const container = document.querySelector('.snowflake-container');
         container.remove();
 
         imageSrc = "assets/img/summer.jpg"; // Apr - Jun
         bgImage.style.filter = "brightness(40%)";
-    } else if (currentMonth >= 5 && currentMonth <= 8) {
+        //} else if (currentMonth >= 5 && currentMonth <= 8) {
+    } else if (currentHour >= 16 && currentHour <= 20) {
         const container2 = document.querySelector('.flare-container');
         container2.remove();
 

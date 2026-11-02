@@ -8,37 +8,38 @@ document.addEventListener("DOMContentLoaded", function () {
     let imageSrc = "";
 
     //if (currentMonth >= 0 && currentMonth <= 2) {
-    if (currentHour >= 5 && currentHour <= 10) {
+    // if (currentHour >= 5 && currentHour <= 10) {
 
-        const container = document.querySelector('.snowflake-container');
-        container.remove();
+    //     const container = document.querySelector('.snowflake-container');
+    //     container.remove();
 
-        imageSrc = "assets/img/spring.jpg"; // Jan - Mar
-        //} else if (currentMonth >= 3 && currentMonth <= 4) {
-    } else if (currentHour >= 10 && currentHour <= 16) {
-        const container = document.querySelector('.snowflake-container');
-        container.remove();
+    //     imageSrc = "assets/img/spring.jpg"; // Jan - Mar
+    //     //} else if (currentMonth >= 3 && currentMonth <= 4) {
+    // } else if (currentHour >= 10 && currentHour <= 16) {
+    //     const container = document.querySelector('.snowflake-container');
+    //     container.remove();
 
-        imageSrc = "assets/img/summer.jpg"; // Apr - Jun
-        bgImage.style.filter = "brightness(40%)";
-        //} else if (currentMonth >= 5 && currentMonth <= 8) {
-    } else if (currentHour >= 16 && currentHour <= 20) {
-        const container2 = document.querySelector('.flare-container');
-        container2.remove();
+    //     imageSrc = "assets/img/summer.jpg"; // Apr - Jun
+    //     bgImage.style.filter = "brightness(40%)";
+    //     //} else if (currentMonth >= 5 && currentMonth <= 8) {
+    // } else if (currentHour >= 16 && currentHour <= 20) {
+    //     const container2 = document.querySelector('.flare-container');
+    //     container2.remove();
 
-        const container = document.querySelector('.snowflake-container');
-        container.remove();
+    //     const container = document.querySelector('.snowflake-container');
+    //     container.remove();
 
-        addRainDrops();
+    //     addRainDrops();
 
-        imageSrc = "assets/img/rain.jpg"; // Jul - Sep
-    } else {
-        const container2 = document.querySelector('.flare-container');
-        container2.remove();
-        imageSrc = "assets/img/winter.jpg"; // Oct - Dec
-    }
+    //     imageSrc = "assets/img/rain.jpg"; // Jul - Sep
+    // } else {
+    //     const container2 = document.querySelector('.flare-container');
+    //     container2.remove();
+    //     imageSrc = "assets/img/winter.jpg"; // Oct - Dec
+    // }
 
-    bgImage.src = imageSrc;
+    //bgImage.src = imageSrc;
+    bgImage.src = "assets/img/winter.jpg";
 });
 
 var addRainDrops = function () {

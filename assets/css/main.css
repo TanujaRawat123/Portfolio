@@ -885,8 +885,8 @@ section,
   display: inline-block;
   left: 0;
   right: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1302,4 +1302,79 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+
+/*--------------------------------------------------------------
+# Clients Infinite Scrolling Section
+--------------------------------------------------------------*/
+
+.clients {
+  overflow: hidden;
+  padding: 50px 0;
+}
+
+.clients-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: clients-scroll 25s linear infinite;
+  will-change: transform;
+}
+
+.client-logo {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.client-logo img {
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* Infinite scrolling animation */
+@keyframes clients-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .client-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .client-logo img {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .clients-track {
+    animation-duration: 20s;
+  }
 }

@@ -1,104 +1,140 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-    const currentMonth = new Date().getMonth(); // 0 = Jan, 11 = Dec
-    const currentHour = new Date().getHours();
-    const bgImage = document.getElementById("bgImage");
-    if (!bgImage) return;
 
-    let imageSrc = "";
+    const video = document.getElementById("heroVideo");
+    const soundToggle = document.getElementById("soundToggle");
 
-    //if (currentMonth >= 0 && currentMonth <= 2) {
-    // if (currentHour >= 5 && currentHour <= 10) {
+    if (!video || !soundToggle) return;
 
-    //     const container = document.querySelector('.snowflake-container');
-    //     container.remove();
+    // Initially muted
+    video.muted = true;
 
-    //     imageSrc = "assets/img/spring.jpg"; // Jan - Mar
-    //     //} else if (currentMonth >= 3 && currentMonth <= 4) {
-    // } else if (currentHour >= 10 && currentHour <= 16) {
-    //     const container = document.querySelector('.snowflake-container');
-    //     container.remove();
+    soundToggle.addEventListener("click", function () {
 
-    //     imageSrc = "assets/img/summer.jpg"; // Apr - Jun
-    //     bgImage.style.filter = "brightness(40%)";
-    //     //} else if (currentMonth >= 5 && currentMonth <= 8) {
-    // } else if (currentHour >= 16 && currentHour <= 20) {
-    //     const container2 = document.querySelector('.flare-container');
-    //     container2.remove();
+        video.muted = !video.muted;
 
-    //     const container = document.querySelector('.snowflake-container');
-    //     container.remove();
+        if (video.muted) {
+            soundToggle.innerHTML = `
+                <i class="bi bi-volume-mute-fill"></i>
+                <span>Sound Off</span>
+            `;
 
-    //     addRainDrops();
+            soundToggle.setAttribute("aria-label", "Turn sound on");
+            soundToggle.setAttribute("aria-pressed", "false");
 
-    //     imageSrc = "assets/img/rain.jpg"; // Jul - Sep
-    // } else {
-    //     const container2 = document.querySelector('.flare-container');
-    //     container2.remove();
-    //     imageSrc = "assets/img/winter.jpg"; // Oct - Dec
-    // }
+        } else {
+            soundToggle.innerHTML = `
+                <i class="bi bi-volume-up-fill"></i>
+                <span>Sound On</span>
+            `;
 
-    //bgImage.src = imageSrc;
-    bgImage.src = "assets/img/winter.jpg";
+            soundToggle.setAttribute("aria-label", "Turn sound off");
+            soundToggle.setAttribute("aria-pressed", "true");
+        }
+
+    });
+
 });
 
-var addRainDrops = function () {
-    const frontRow = document.querySelector('.rain.front-row');
-    const numberOfDrops = 50;
+// document.addEventListener("DOMContentLoaded", function () {
+//     const currentMonth = new Date().getMonth(); // 0 = Jan, 11 = Dec
+//     const currentHour = new Date().getHours();
+//     const bgImage = document.getElementById("bgImage");
+//     if (!bgImage) return;
 
-    var left = Math.random() * 100 + '%';
-    var animationDelay = Math.random() * 2 + 's';
-    var animationDuration = Math.random() * 2 + 's';
+//     let imageSrc = "";
 
-    for (let i = 0; i < numberOfDrops; i++) {
-        left = Math.random() * 100 + '%';
-        animationDelay = Math.random() * 2 + 's';
-        animationDuration = Math.random() * 2 + 's';
+//     //if (currentMonth >= 0 && currentMonth <= 2) {
+//     // if (currentHour >= 5 && currentHour <= 10) {
 
-        const drop = document.createElement('div');
-        drop.className = 'drop';
-        drop.style.left = left;
-        drop.style.animationDelay = animationDelay;
-        drop.style.animationDuration = animationDuration;
+//     //     const container = document.querySelector('.snowflake-container');
+//     //     container.remove();
 
-        const stem = document.createElement('div');
-        stem.className = 'stem';
-        stem.style.animationDuration = animationDuration;
-        stem.style.animationDelay = animationDelay;
-        drop.appendChild(stem);
+//     //     imageSrc = "assets/img/spring.jpg"; // Jan - Mar
+//     //     //} else if (currentMonth >= 3 && currentMonth <= 4) {
+//     // } else if (currentHour >= 10 && currentHour <= 16) {
+//     //     const container = document.querySelector('.snowflake-container');
+//     //     container.remove();
 
-        const splat = document.createElement('div');
-        splat.className = 'splat';
-        splat.style.animationDelay = animationDelay;
-        drop.appendChild(splat);
+//     //     imageSrc = "assets/img/summer.jpg"; // Apr - Jun
+//     //     bgImage.style.filter = "brightness(40%)";
+//     //     //} else if (currentMonth >= 5 && currentMonth <= 8) {
+//     // } else if (currentHour >= 16 && currentHour <= 20) {
+//     //     const container2 = document.querySelector('.flare-container');
+//     //     container2.remove();
 
-        frontRow.appendChild(drop);
-    }
+//     //     const container = document.querySelector('.snowflake-container');
+//     //     container.remove();
 
-    const backRow = document.querySelector('.rain.back-row');
+//     //     addRainDrops();
 
-    for (let i = 0; i < numberOfDrops; i++) {
-        left = Math.random() * 100 + '%';
-        animationDelay = Math.random() * 2 + 's';
-        animationDuration = Math.random() * 2 + 's';
+//     //     imageSrc = "assets/img/rain.jpg"; // Jul - Sep
+//     // } else {
+//     //     const container2 = document.querySelector('.flare-container');
+//     //     container2.remove();
+//     //     imageSrc = "assets/img/winter.jpg"; // Oct - Dec
+//     // }
 
-        const drop = document.createElement('div');
-        drop.className = 'drop';
-        drop.style.left = left;
-        drop.style.animationDelay = animationDelay;
-        drop.style.animationDuration = animationDuration;
+//     //bgImage.src = imageSrc;
+//     bgImage.src = "assets/img/winter.jpg";
+// });
 
-        const stem = document.createElement('div');
-        stem.className = 'stem';
-        stem.style.animationDuration = animationDuration;
-        stem.style.animationDelay = animationDelay;
-        drop.appendChild(stem);
+// var addRainDrops = function () {
+//     const frontRow = document.querySelector('.rain.front-row');
+//     const numberOfDrops = 50;
 
-        const splat = document.createElement('div');
-        splat.className = 'splat';
-        splat.style.animationDelay = animationDelay;
-        drop.appendChild(splat);
+//     var left = Math.random() * 100 + '%';
+//     var animationDelay = Math.random() * 2 + 's';
+//     var animationDuration = Math.random() * 2 + 's';
 
-        backRow.appendChild(drop);
-    }
-}
+//     for (let i = 0; i < numberOfDrops; i++) {
+//         left = Math.random() * 100 + '%';
+//         animationDelay = Math.random() * 2 + 's';
+//         animationDuration = Math.random() * 2 + 's';
+
+//         const drop = document.createElement('div');
+//         drop.className = 'drop';
+//         drop.style.left = left;
+//         drop.style.animationDelay = animationDelay;
+//         drop.style.animationDuration = animationDuration;
+
+//         const stem = document.createElement('div');
+//         stem.className = 'stem';
+//         stem.style.animationDuration = animationDuration;
+//         stem.style.animationDelay = animationDelay;
+//         drop.appendChild(stem);
+
+//         const splat = document.createElement('div');
+//         splat.className = 'splat';
+//         splat.style.animationDelay = animationDelay;
+//         drop.appendChild(splat);
+
+//         frontRow.appendChild(drop);
+//     }
+
+//     const backRow = document.querySelector('.rain.back-row');
+
+//     for (let i = 0; i < numberOfDrops; i++) {
+//         left = Math.random() * 100 + '%';
+//         animationDelay = Math.random() * 2 + 's';
+//         animationDuration = Math.random() * 2 + 's';
+
+//         const drop = document.createElement('div');
+//         drop.className = 'drop';
+//         drop.style.left = left;
+//         drop.style.animationDelay = animationDelay;
+//         drop.style.animationDuration = animationDuration;
+
+//         const stem = document.createElement('div');
+//         stem.className = 'stem';
+//         stem.style.animationDuration = animationDuration;
+//         stem.style.animationDelay = animationDelay;
+//         drop.appendChild(stem);
+
+//         const splat = document.createElement('div');
+//         splat.className = 'splat';
+//         splat.style.animationDelay = animationDelay;
+//         drop.appendChild(splat);
+
+//         backRow.appendChild(drop);
+//     }
+// }

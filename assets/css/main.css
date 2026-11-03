@@ -621,6 +621,19 @@ section,
   border-bottom: 2px solid var(--accent-color);
 }
 
+/* Hero text shadow */
+.hero h2 {
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+  text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero .typed {
+  text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.9);
+}
+
 .hero .social-links {
   margin-top: 25px;
 }
@@ -645,6 +658,80 @@ section,
 
   .hero p {
     font-size: 20px;
+  }
+}
+
+/* Hero Video Background */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Optional dark overlay for readable text */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Hero Content */
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sound Toggle Button */
+.sound-toggle {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+
+.sound-toggle:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.sound-toggle i {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .sound-toggle {
+    right: 15px;
+    bottom: 20px;
+    padding: 9px 14px;
   }
 }
 
@@ -805,6 +892,56 @@ section,
   top: 0;
   background: var(--background-color);
   border: 2px solid var(--accent-color);
+}
+
+/* Resume collapsed state */
+.resume-content {
+  max-height: 10%;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.8s ease;
+}
+
+/* Expanded state */
+.resume-content.expanded {
+  max-height: 100%;
+}
+
+/* Bottom gradient overlay */
+.resume-content:not(.expanded)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      var(--background-color) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Remove gradient when expanded */
+.resume-content.expanded::after {
+  display: none;
+}
+
+/* Show More Button */
+.resume-toggle-btn {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resume-toggle-btn:hover {
+  opacity: 0.85;
 }
 
 /*--------------------------------------------------------------
